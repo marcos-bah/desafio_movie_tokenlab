@@ -22,9 +22,9 @@ Um projeto feito em flutter para consumir uma API REST como parte do desafio pro
 
 ## Screenshots
 
-![loader](https://github.com/marcos-bah/desafio_movie_tokenlab/docs/loader.png)
-![HomeView](https://github.com/marcos-bah/desafio_movie_tokenlab/docs/home.png)
-![MovieDetails](https://github.com/marcos-bah/desafio_movie_tokenlab/docs/details.png)
+![loader](https://github.com/marcos-bah/desafio_movie_tokenlab/blob/main/docs/loader.png)
+![HomeView](https://github.com/marcos-bah/desafio_movie_tokenlab/blob/main/docs/home.png)
+![MovieDetails](https://github.com/marcos-bah/desafio_movie_tokenlab/blob/main/docs/details.png)
 
 ## Como funciona?
 
