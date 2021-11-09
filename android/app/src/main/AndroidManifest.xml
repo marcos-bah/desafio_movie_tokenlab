@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.marcosbah.desafio_movie_tokenlab">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="desafio_movie_tokenlab"
         android:icon="@mipmap/ic_launcher">

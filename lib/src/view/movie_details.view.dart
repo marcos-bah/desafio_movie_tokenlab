@@ -1,19 +1,45 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:desafio_movie_tokenlab/src/app/app.colors.dart';
+import 'package:desafio_movie_tokenlab/src/controller/movie.controller.dart';
 import 'package:desafio_movie_tokenlab/src/model/movie.model.dart';
+import 'package:desafio_movie_tokenlab/src/model/movie_details.model.dart';
 import 'package:desafio_movie_tokenlab/src/widgets/badge.widget.dart';
+import 'package:desafio_movie_tokenlab/src/widgets/custom_general.widget.dart';
 import 'package:desafio_movie_tokenlab/src/widgets/star.widget.dart';
 import 'package:flutter/material.dart';
 
-class MovieDetailsView extends StatelessWidget {
+class MovieDetailsView extends StatefulWidget {
   final MovieModel movie;
   const MovieDetailsView({Key? key, required this.movie}) : super(key: key);
 
   @override
+  State<MovieDetailsView> createState() => _MovieDetailsViewState();
+}
+
+class _MovieDetailsViewState extends State<MovieDetailsView> {
+  MovieController controller = MovieController();
+  MovieDetailsModel? movieDetailsModel;
+
+  @override
+  void setState(VoidCallback fn) {
+    super.setState(fn);
+  }
+
+  @override
   Widget build(BuildContext context) {
+    if (movieDetailsModel == null) {
+      controller.fetchMoviesDetails(widget.movie.id.toString()).then(
+        (value) {
+          setState(() {
+            movieDetailsModel = value;
+            print(movieDetailsModel);
+          });
+        },
+      );
+    }
     return Scaffold(
       appBar: AppBar(
-        title: Text(movie.title),
+        title: Text(widget.movie.title),
         actions: const [
           IconButton(
             onPressed: null,
@@ -41,7 +67,7 @@ class MovieDetailsView extends StatelessWidget {
             width: double.infinity,
             color: Colors.white10,
             child: CachedNetworkImage(
-              imageUrl: movie.posterUrl,
+              imageUrl: widget.movie.posterUrl,
               fit: BoxFit.fitHeight,
               errorWidget: (context, error, stackTrace) {
                 return Padding(
@@ -56,7 +82,7 @@ class MovieDetailsView extends StatelessWidget {
                           size: 36,
                         ),
                         Text(
-                          "${movie.title}\nImagem não encontrada",
+                          "${widget.movie.title}\nImagem não encontrada",
                           style: const TextStyle(
                             color: Colors.white10,
                           ),
@@ -77,7 +103,7 @@ class MovieDetailsView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 16.0, top: 10),
             child: Text(
-              movie.title,
+              widget.movie.title,
               style: const TextStyle(
                 fontSize: 24,
                 color: Colors.white,
@@ -87,7 +113,7 @@ class MovieDetailsView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 16.0, top: 10),
             child: Text(
-              "Lançado em: ${movie.releaseDate.day}/${movie.releaseDate.month}/${movie.releaseDate.year}",
+              "Lançado em: ${widget.movie.releaseDate.day}/${widget.movie.releaseDate.month}/${widget.movie.releaseDate.year}",
               style: const TextStyle(
                 color: Colors.white,
               ),
@@ -95,18 +121,38 @@ class MovieDetailsView extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 16.0, top: 10),
-            child: StarWidget(voteAverage: movie.voteAverage / 2),
+            child: StarWidget(voteAverage: widget.movie.voteAverage / 2),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 16.0, top: 10),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children:
-                    movie.genres.map((e) => BadgeWidget(title: e)).toList(),
+                children: widget.movie.genres
+                    .map((e) => BadgeWidget(title: e))
+                    .toList(),
               ),
             ),
           ),
+          movieDetailsModel == null
+              ? const Padding(
+                  padding: EdgeInsets.only(
+                    left: 16.0,
+                    top: 10,
+                    right: 16,
+                  ),
+                  child: CustomGeneralWidget.rectangular(height: 80),
+                )
+              : Padding(
+                  padding: const EdgeInsets.only(left: 16.0, top: 10),
+                  child: Text(
+                    movieDetailsModel!.overview,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
         ],
       ),
     );

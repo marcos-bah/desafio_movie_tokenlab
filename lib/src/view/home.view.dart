@@ -1,8 +1,8 @@
+import 'package:desafio_movie_tokenlab/src/app/app.colors.dart';
 import 'package:desafio_movie_tokenlab/src/controller/movie.controller.dart';
 import 'package:desafio_movie_tokenlab/src/model/movie.model.dart';
 
 import 'package:desafio_movie_tokenlab/src/widgets/custom_general.widget.dart';
-import 'package:desafio_movie_tokenlab/src/widgets/custom_appbar.widget.dart';
 import 'package:desafio_movie_tokenlab/src/widgets/movies_scrool.widget.dart';
 import 'package:flutter/material.dart';
 
@@ -19,8 +19,28 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-        height: 100,
+      appBar: AppBar(
+        backgroundColor: AppColors.secondaryDark,
+        title: Image.asset(
+          "assets/images/logo.png",
+          height: 60,
+        ),
+        actions: const [
+          IconButton(
+            onPressed: null,
+            icon: Icon(
+              Icons.cast,
+              color: Colors.white,
+            ),
+          ),
+          IconButton(
+            onPressed: null,
+            icon: Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.only(
@@ -33,7 +53,7 @@ class _HomeViewState extends State<HomeView> {
           child: FutureBuilder<List<MovieModel>>(
             future: controller.fetchMovies(),
             builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.connectionState != ConnectionState.done) {
                 if (snapshot.hasData) {
                   List<MovieModel> movies = snapshot.data!;
                   return MoviesScroolWidget(movies: movies);

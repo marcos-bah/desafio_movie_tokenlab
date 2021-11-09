@@ -1,4 +1,5 @@
 import 'package:desafio_movie_tokenlab/src/model/movie.model.dart';
+import 'package:desafio_movie_tokenlab/src/model/movie_details.model.dart';
 import 'package:desafio_movie_tokenlab/src/service/movie.service.dart';
 
 class MovieController {
@@ -6,4 +7,6 @@ class MovieController {
   Future<List<MovieModel>> fetchMovies() async => await _service.getMovies();
   Future<List<MovieModel>> fetchMoviesCached() async =>
       await _service.getMoviesCached();
+  Future<MovieDetailsModel> fetchMoviesDetails(String id) async =>
+      await _service.getMoviesDetailsById(id);
 }
