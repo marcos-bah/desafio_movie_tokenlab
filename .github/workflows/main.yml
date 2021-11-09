@@ -18,3 +18,4 @@ jobs:
       - uses: bluefireteam/flutter-gh-pages@v7
         with:
           baseHref: /desafio_movie_tokenlab/
+      - run: flutter build apk
