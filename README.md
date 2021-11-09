@@ -4,7 +4,7 @@ Um projeto feito em flutter para consumir uma API REST como parte do desafio pro
 
 ## Suporte
 
-[x] Android [(download here)](https://github.com/marcos-bah/desafio_movie_tokenlab/suites/4302938076/artifacts/112317294)  
+[x] Android [(download here)](https://github.com/marcos-bah/desafio_movie_tokenlab/suites/4304551747/artifacts/112383911)  
 [x] Linux  
 [x] Web [(see demo)](https://marcos-bah.github.io/desafio_movie_tokenlab/#/)
 
