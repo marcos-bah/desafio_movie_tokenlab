@@ -53,7 +53,7 @@ class _HomeViewState extends State<HomeView> {
           child: FutureBuilder<List<MovieModel>>(
             future: controller.fetchMovies(),
             builder: (context, snapshot) {
-              if (snapshot.connectionState != ConnectionState.done) {
+              if (snapshot.connectionState == ConnectionState.done) {
                 if (snapshot.hasData) {
                   List<MovieModel> movies = snapshot.data!;
                   return MoviesScroolWidget(movies: movies);
