@@ -1,3 +1,4 @@
+import 'package:desafio_movie_tokenlab/src/app/app.colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -17,7 +18,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       height: preferredSize.height,
       alignment: Alignment.center,
       decoration: const BoxDecoration(
-        color: Colors.black26,
+        color: AppColors.secondaryDark,
       ),
       child: Center(
         child: Padding(

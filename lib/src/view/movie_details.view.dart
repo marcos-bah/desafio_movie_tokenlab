@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:desafio_movie_tokenlab/src/app/app.colors.dart';
 import 'package:desafio_movie_tokenlab/src/model/movie.model.dart';
 import 'package:desafio_movie_tokenlab/src/widgets/badge.widget.dart';
 import 'package:desafio_movie_tokenlab/src/widgets/star.widget.dart';
@@ -29,7 +30,7 @@ class MovieDetailsView extends StatelessWidget {
             ),
           ),
         ],
-        backgroundColor: Colors.black26,
+        backgroundColor: AppColors.secondary,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,

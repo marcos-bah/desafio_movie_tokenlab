@@ -4,9 +4,9 @@ Um projeto feito em flutter para consumir uma API REST como parte do desafio pro
 
 ## Suporte
 
-[x] Android [(download here)](download.com)  
+[x] Android [(download here)](https://github.com/marcos-bah/desafio_movie_tokenlab/suites/4302608520/artifacts/112304069)  
 [x] Linux  
-[x] Web [(see demo)](download.com)
+[x] Web [(see demo)](https://marcos-bah.github.io/desafio_movie_tokenlab/#/)
 
 ## Features
 
@@ -17,7 +17,7 @@ Um projeto feito em flutter para consumir uma API REST como parte do desafio pro
 [x] Movie Details View  
 [x] Named Routes  
 [x] Shared Preferences  
-[x] Image Cache
+[x] Image Cache  
 [x] Efeito Shimmer
 
 ## Como funciona?

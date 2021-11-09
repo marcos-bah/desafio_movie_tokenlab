@@ -1,3 +1,4 @@
+import 'package:desafio_movie_tokenlab/src/app/app.colors.dart';
 import 'package:desafio_movie_tokenlab/src/view/home.view.dart';
 import 'package:desafio_movie_tokenlab/src/view/movie_details.view.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.black38,
+        scaffoldBackgroundColor: AppColors.secondary,
         fontFamily: GoogleFonts.roboto().fontFamily,
       ),
       initialRoute: '/',

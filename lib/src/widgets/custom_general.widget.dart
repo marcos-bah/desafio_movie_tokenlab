@@ -1,3 +1,4 @@
+import 'package:desafio_movie_tokenlab/src/app/app.colors.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -20,7 +21,7 @@ class CustomGeneralWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        color: Colors.black,
+        color: AppColors.primary,
         child: Container(
           color: Colors.white12,
           child: Shimmer.fromColors(
